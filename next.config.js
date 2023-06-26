@@ -84,6 +84,9 @@ const nextConfig = {
   eslint: {
     dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
   },
+  publicRuntimeConfig: {
+    staticFolder: '',
+  },
   async headers() {
     return [
       {
@@ -114,9 +117,9 @@ const nextConfig = {
 
 // asset prefix
 if (process.env.GITHUB === 'true') {
-  nextConfig.assetPrefix = isProd ? '/eunchurn.com/' : ''
-  nextConfig.basePath = isProd ? '/eunchurn.com' : ''
-  nextConfig.publicRuntimeConfig.staticFolder = isProd ? '/eunchurn.com' : ''
+  nextConfig.assetPrefix = isProd ? '/cafedeflore/' : ''
+  nextConfig.basePath = isProd ? '/cafedeflore' : ''
+  nextConfig.publicRuntimeConfig.staticFolder = isProd ? '/cafedeflore' : ''
 }
 
 module.exports = withBundleAnalyzer(nextConfig)
