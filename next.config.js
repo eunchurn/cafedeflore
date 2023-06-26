@@ -1,19 +1,19 @@
 const isProd = process.env.NODE_ENV === 'production'
-
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
+// const withPWA = require("next-pwa")({
+//   dest: "public",
+//   disable: !isProd,
+//   maximumFileSizeToCacheInBytes: 50000000,
+// });
 
-// You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
-  default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app;
-  style-src 'self' 'unsafe-inline';
-  img-src * blob: data:;
-  media-src 'none';
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' blob: data: localhost:4000 *.builderhub.io *.sentry-cdn.com;
+  img-src *;
+  media-src *;
   connect-src *;
-  font-src 'self';
-  frame-src giscus.app
+  frame-src 'self';
 `
 
 const securityHeaders = [
@@ -52,68 +52,67 @@ const securityHeaders = [
     key: 'Permissions-Policy',
     value: 'camera=(), microphone=(), geolocation=()',
   },
+  {
+    key: 'Access-Control-Allow-Origin',
+    value: '*',
+  },
 ]
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  productionBrowserSourceMaps: false,
   reactStrictMode: true,
-  images: {
-    domains: [
-      'i.scdn.co', // Spotify Album Art
-      'pbs.twimg.com',
-      'cdn.discordapp.com', // discord url
-      'avatars.githubusercontent.com',
-      'github.com',
-      's3.us-west-2.amazonaws.com', // Images coming from Notion
-      'via.placeholder.com', // for articles that do not have a cover image
-      'images.unsplash.com', // For blog posts that use an external cover image
-      'pbs.twimg.com', // Twitter Profile Picture
-      'dwgyu36up6iuz.cloudfront.net',
-      'cdn.hashnode.com',
-      'res.craft.do',
-      'res.cloudinary.com', // Twitter Profile Picture
-    ],
-  },
-  rewrites: async () => [
-    {
-      source: '/public/terms.html',
-      destination: '/pages/api/html.js',
-    },
-  ],
-  pageExtensions: ['js', 'jsx', 'md', 'mdx'],
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
   eslint: {
     dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
   },
+  images: {
+    unoptimized: true,
+    disableStaticImages: true,
+  },
+  assetPrefix: '',
   publicRuntimeConfig: {
     staticFolder: '',
   },
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: securityHeaders,
-      },
-    ]
-  },
+  output: 'export',
   webpack: (config, { dev, isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        fs: false,
+      }
+    }
+    config.module.rules.push({
+      test: /\.(png|jpe?g|gif|mp4)$/i,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            publicPath: '/_next',
+            name: 'static/media/[name].[hash].[ext]',
+          },
+        },
+      ],
+    })
+
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     })
 
-    if (!dev && !isServer) {
-      // Replace React with Preact only in client production build
-      Object.assign(config.resolve.alias, {
-        'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
-        react: 'preact/compat',
-        'react-dom/test-utils': 'preact/test-utils',
-        'react-dom': 'preact/compat',
-      })
-    }
-
     return config
   },
+  swcMinify: true,
 }
+
+const KEYS_TO_OMIT = [
+  'webpackDevMiddleware',
+  'configOrigin',
+  'target',
+  'analyticsId',
+  'webpack5',
+  'amp',
+  'assetPrefix',
+]
 
 // asset prefix
 if (process.env.GITHUB === 'true') {
@@ -122,4 +121,21 @@ if (process.env.GITHUB === 'true') {
   nextConfig.publicRuntimeConfig.staticFolder = isProd ? '/cafedeflore' : ''
 }
 
-module.exports = withBundleAnalyzer(nextConfig)
+module.exports = (_phase, { defaultConfig }) => {
+  // const plugins = [[withPWA], [withBundleAnalyzer]];
+  const plugins = [[withBundleAnalyzer]]
+
+  const wConfig = plugins.reduce((acc, [plugin, config]) => plugin({ ...acc, ...config }), {
+    ...defaultConfig,
+    ...nextConfig,
+  })
+
+  const finalConfig = {}
+  Object.keys(wConfig).forEach((key) => {
+    if (!KEYS_TO_OMIT.includes(key)) {
+      finalConfig[key] = wConfig[key]
+    }
+  })
+
+  return finalConfig
+}
