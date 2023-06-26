@@ -7,6 +7,7 @@ import formatDate from '@/lib/utils/formatDate'
 import { RoughNotation } from 'react-rough-notation'
 import NewsletterForm from '@/components/NewsletterForm'
 import ViewCounter from '@/components/ViewCounter'
+import { InstagramIcon, KakaoNaviIcon } from '@/components/icon'
 
 const MAX_DISPLAY = 3
 
@@ -21,18 +22,21 @@ export default function Home({ posts }) {
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <div>
-        <div className="mb-12 flex flex-col items-center gap-x-12 xl:flex-row">
+        <div className="mb-12 flex justify-between flex-col items-center gap-x-12 xl:flex-row">
           <div className="pt-6">
-            <h1 className="pb-6 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-              Hi, I am{' '}
-              <span className="text-primary-color-500 dark:text-primary-color-dark-500">Parth</span>
+            <h1 className="pb-6 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
+              안녕하세요{' '}
+              <span className="text-primary-color-500 dark:text-primary-color-dark-500">
+                Cafe de Flore
+              </span>{' '}
+              입니다.
             </h1>
-            <h2 className="prose pt-5 text-lg text-gray-600 dark:text-gray-300">
+            {/* <h2 className="prose pt-5 text-lg text-gray-600 dark:text-gray-300">
               {`Welcome to ${siteMetadata.description}. I am a Data Engineer who is passionate about Data Science and Automation. In my free time, I like developing `}
               side projects and learning new technologies.
-            </h2>
+            </h2> */}
             <p className="pt-5 text-lg leading-7 text-slate-600 dark:text-slate-300 sm:block md:hidden lg:hidden">
-              This is my place for{' '}
+              카페드플로르는{' '}
               <RoughNotation
                 animate="true"
                 type="box"
@@ -42,12 +46,12 @@ export default function Home({ posts }) {
                 animationDuration={2500}
                 className="text-slate-200"
               >
-                thoughts, reflections & everything&nbsp;
+                경기도 안성시 비룡5길 18&nbsp;
               </RoughNotation>
-              in between. Have a good read!
+              에 위치하고 있습니다!
             </p>
             <p className="hidden pt-10 text-lg leading-7 text-slate-600 dark:text-slate-300 md:block">
-              This is my place for{' '}
+              카페드플로르는{' '}
               <RoughNotation
                 animate="true"
                 type="highlight"
@@ -57,9 +61,9 @@ export default function Home({ posts }) {
                 animationDuration={2500}
                 className="text-slate-200"
               >
-                thoughts, reflections & everything&nbsp;
+                경기도 안성시 비룡5길 18&nbsp;
               </RoughNotation>
-              in between. Have a good read!{' '}
+              에 위치하고 있습니다!{' '}
               <div className="mt-8 text-slate-600 dark:text-slate-400">
                 <span className="text-sm">Press</span>{' '}
                 <span className="rounded-md bg-gray-300 p-1 text-sm text-gray-900 dark:bg-gray-400">
@@ -102,14 +106,15 @@ export default function Home({ posts }) {
             </h1>
           </div> */}
           <div className="flex items-center justify-center">
-            <div className="grid grid-cols-1 grid-rows-3 gap-8 py-12">
+            <div className="grid grid-cols-1 grid-rows-3 gap-8 py-12 min-w-[300px]">
               <div className="my-2 grid items-start gap-8">
                 <div className="group relative">
                   <div className="animate-tilt absolute -inset-0.5 rounded-lg bg-gradient-to-r from-pink-600 to-purple-600 opacity-50 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200"></div>
-                  <Link href="/projects">
-                    <span className="relative flex items-center divide-x divide-gray-600 rounded-lg bg-white px-7 py-4 leading-none dark:bg-black">
+                  <Link href="https://instagram.com/cafedeflore_ansung">
+                    <span className="relative flex items-center rounded-lg bg-white px-7 py-4 leading-none dark:bg-black">
                       <span className="flex items-center space-x-5">
-                        <svg
+                        <InstagramIcon />
+                        {/* <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-6 w-6 -rotate-6 text-green-600"
                           fill="none"
@@ -122,11 +127,11 @@ export default function Home({ posts }) {
                             strokeWidth="2"
                             d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
                           />
-                        </svg>
-                        <span className="pr-6 text-gray-900 dark:text-gray-100">What I built</span>
+                        </svg> */}
+                        {/* <span className="pr-6 text-gray-900 dark:text-gray-100">What I built</span> */}
                       </span>
                       <span className="pl-6 text-amber-400 transition duration-200 group-hover:text-gray-900 dark:group-hover:text-gray-100">
-                        Projects&nbsp;&rarr;
+                        인스타그램&nbsp;&rarr;
                       </span>
                     </span>
                   </Link>
@@ -136,8 +141,9 @@ export default function Home({ posts }) {
                 <div className="group relative">
                   <div className="animate-tilt absolute -inset-0.5 rounded-lg bg-gradient-to-r from-fuchsia-600 to-emerald-600 opacity-50 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200"></div>
                   <Link href="https://parthdesai.vercel.app/">
-                    <span className="relative flex items-center divide-x divide-gray-600 rounded-lg bg-white px-7 py-4 leading-none dark:bg-black">
-                      <span className="flex items-center space-x-5">
+                    <span className="relative flex items-center rounded-lg bg-white px-7 py-4 leading-none dark:bg-black">
+                      <KakaoNaviIcon />
+                      {/* <span className="flex items-center space-x-5">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-6 w-6 -rotate-6 text-pink-600"
@@ -153,15 +159,15 @@ export default function Home({ posts }) {
                           />
                         </svg>
                         <span className="pr-6 text-gray-900 dark:text-gray-100">Read my story</span>
-                      </span>
+                      </span> */}
                       <span className="pl-6 text-indigo-400 transition duration-200 group-hover:text-gray-900 dark:group-hover:text-gray-100">
-                        Website&nbsp;&rarr;
+                        카카오내비&nbsp;&rarr;
                       </span>
                     </span>
                   </Link>
                 </div>
               </div>
-              <div className="my-2 grid items-start gap-8">
+              {/* <div className="my-2 grid items-start gap-8">
                 <div className="group relative">
                   <div className="animate-tilt absolute -inset-0.5 rounded-lg bg-gradient-to-r  from-pink-600 to-purple-600 opacity-50 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200"></div>
                   <Link href="https://parthdesai.vercel.app/resume.pdf">
@@ -193,11 +199,11 @@ export default function Home({ posts }) {
                     </span>
                   </Link>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
-        <h2 className="flex pb-6 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl md:text-5xl">
+        {/* <h2 className="flex pb-6 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl md:text-5xl">
           Latest
         </h2>
         <hr className="border-gray-200 dark:border-gray-700" />
@@ -251,9 +257,9 @@ export default function Home({ posts }) {
               </Link>
             )
           })}
-        </ul>
+        </ul> */}
       </div>
-      {posts.length > MAX_DISPLAY && (
+      {/* {posts.length > MAX_DISPLAY && (
         <div className="flex justify-end pt-5 text-lg font-normal leading-6">
           <Link
             href="/blog"
@@ -263,7 +269,7 @@ export default function Home({ posts }) {
             All Posts &rarr;
           </Link>
         </div>
-      )}
+      )} */}
       {siteMetadata.newsletter.provider !== '' && (
         <div className="flex items-center justify-center pt-4">{/* <NewsletterForm /> */}</div>
       )}

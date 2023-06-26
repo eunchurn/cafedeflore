@@ -34,7 +34,7 @@ const LayoutWrapper = ({ children }) => {
                 )}
               </div> */}
               <div className="text-primary-color dark:text-primary-color-dark flex items-center justify-between text-xl font-semibold">
-                {`~${router.asPath}`}{' '}
+                {`cafedeflore ~${router.asPath}`}{' '}
                 <Typewriter
                   options={{
                     strings: [],

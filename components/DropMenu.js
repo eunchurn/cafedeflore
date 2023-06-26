@@ -95,7 +95,7 @@ export default function DropMenu() {
                 </Link>
               )}
             </Menu.Item>
-            <Menu.Item>
+            {/* <Menu.Item>
               {({ active }) => (
                 <Link href="/blog">
                   <a
@@ -148,7 +148,7 @@ export default function DropMenu() {
                   </a>
                 </Link>
               )}
-            </Menu.Item>
+            </Menu.Item> */}
             <Menu.Item>
               {({ active }) => (
                 <Link href="/about">
@@ -167,7 +167,7 @@ export default function DropMenu() {
                 </Link>
               )}
             </Menu.Item>
-            <Menu.Item>
+            {/* <Menu.Item>
               {({ active }) => (
                 <>
                   <Link>
@@ -411,7 +411,7 @@ export default function DropMenu() {
                   </a>
                 </Link>
               )}
-            </Menu.Item>
+            </Menu.Item> */}
           </div>
         </Menu.Items>
       </Transition>

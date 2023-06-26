@@ -1,22 +1,22 @@
 const siteMetadata = {
-  title: 'Blog | Parth Desai',
-  author: 'Parth Desai',
-  headerTitle: 'Mere Musings',
-  description: 'My personal blog where I share my musings',
-  snippets: 'Reuseable code snippets collected by Parth',
-  language: 'en-us',
+  title: 'Blog | Cafe de Flore',
+  author: 'Eunchurn Park',
+  headerTitle: 'Cafe de flore',
+  description: 'Cafe de flore website',
+  snippets: 'What is this?',
+  language: 'ko-kr',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://musing.vercel.app',
-  siteRepo: 'https://github.com/pycoder2000/blog',
+  siteUrl: 'https://cafedeflore.kr',
+  siteRepo: 'https://github.com/eunchurn/cafedeflorekr',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
-  email: 'desaiparth2000@gmail.com',
-  github: 'https://github.com/pycoder2000',
-  twitter: 'https://twitter.com/_ParthDesai_',
-  linkedin: 'https://www.linkedin.com/in/parth-desai-2bb1b0160/',
-  website: 'https://parthdesai.vercel.app',
-  locale: 'en-US',
+  email: 'cafedeflorekr@gmail.com',
+  github: 'https://github.com/eunchurn',
+  twitter: 'https://twitter.com/eunchurn',
+  linkedin: '',
+  website: 'https://cafedeflore.kr',
+  locale: 'ko-KR',
   analytics: {
     plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
     simpleAnalytics: false, // true or false
@@ -46,7 +46,7 @@ const siteMetadata = {
     },
   },
   socialAccount: {
-    twitter: '_ParthDesai_',
+    twitter: 'eunchurn',
   },
 }
 
