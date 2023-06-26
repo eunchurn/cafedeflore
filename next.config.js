@@ -1,3 +1,5 @@
+const isProd = process.env.NODE_ENV === 'production'
+
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
@@ -52,7 +54,8 @@ const securityHeaders = [
   },
 ]
 
-module.exports = withBundleAnalyzer({
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: [
@@ -107,4 +110,13 @@ module.exports = withBundleAnalyzer({
 
     return config
   },
-})
+}
+
+// asset prefix
+if (process.env.GITHUB === 'true') {
+  nextConfig.assetPrefix = isProd ? '/eunchurn.com/' : ''
+  nextConfig.basePath = isProd ? '/eunchurn.com' : ''
+  nextConfig.publicRuntimeConfig.staticFolder = isProd ? '/eunchurn.com' : ''
+}
+
+module.exports = withBundleAnalyzer(nextConfig)
