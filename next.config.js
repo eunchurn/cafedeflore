@@ -74,6 +74,7 @@ const nextConfig = {
   publicRuntimeConfig: {
     staticFolder: '',
   },
+  output: 'export',
   webpack: (config, { dev, isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
