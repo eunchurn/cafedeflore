@@ -74,7 +74,6 @@ const nextConfig = {
   publicRuntimeConfig: {
     staticFolder: '',
   },
-  output: 'export',
   webpack: (config, { dev, isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
@@ -119,6 +118,7 @@ if (process.env.GITHUB === 'true') {
   nextConfig.assetPrefix = isProd ? '/cafedeflore/' : ''
   nextConfig.basePath = isProd ? '/cafedeflore' : ''
   nextConfig.publicRuntimeConfig.staticFolder = isProd ? '/cafedeflore' : ''
+  nextConfig.output = 'export'
 }
 
 module.exports = (_phase, { defaultConfig }) => {

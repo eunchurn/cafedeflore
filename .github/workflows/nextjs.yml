@@ -85,10 +85,8 @@ jobs:
           echo "NEXT_PUBLIC_GISCUS_REPOSITORY_ID=${{ secrets.NEXT_PUBLIC_GISCUS_REPOSITORY_ID }}" >> .env.production
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} build:github
-      - name: Static HTML export with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} export
+      - name: Build and Static HTML export with Next.js
+        run: ${{ steps.detect-package-manager.outputs.runner }} build
       - name: No jekyll build
         run: touch out/.nojekyll
       - name: Upload artifact
