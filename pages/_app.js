@@ -70,7 +70,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
               crossorigin="anonymous"
               strategy="beforeInteractive"
             />
-            <Script id="kakao">Kakao.init('c089c8172def97eb00c07217cae17495')</Script>
+            <Script id="kakao">Kakao.init('f1919e09c5b9eed504bf9727377216d6')</Script>
             <Component {...pageProps} />
           </LayoutWrapper>
         </ThemeProvider>
