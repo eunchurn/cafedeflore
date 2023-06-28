@@ -4,8 +4,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 const withPWA = require('next-pwa')({
   dest: 'public',
-  disable: !isProd,
-  maximumFileSizeToCacheInBytes: 50000000,
+  // disable: !isProd,
+  // maximumFileSizeToCacheInBytes: 50000000,
 })
 
 const ContentSecurityPolicy = `
