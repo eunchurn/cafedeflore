@@ -21,11 +21,10 @@ export async function getStaticProps() {
 
 export default function Home({ posts }) {
   const handleKakaoNavi = () => {
-    console.log()
     Kakao.Navi.start({
-      name: '현대백화점 판교점',
-      x: 127.11205203011632,
-      y: 37.39279717586919,
+      name: '카페드플로르',
+      x: 127.26104665430583,
+      y: 37.013049314920174,
       coordType: 'wgs84',
     })
   }
