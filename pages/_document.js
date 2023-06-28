@@ -4,50 +4,51 @@ class MyDocument extends Document {
     return (
       <Html lang="en" className="scroll-smooth">
         <Head>
-          <link
-            rel="apple-touch-icon"
-            sizes="76x76"
-            href="/static/favicons/apple-touch-icon-76x76.png"
-          />
+          <link rel="apple-touch-icon" sizes="76x76" href="/static/favicons/apple-icon-76x76.png" />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="57x57"
-            href="/static/favicons/apple-touch-icon-57x57.png"
+            href="/static/favicons/apple-icon-57x57.png"
           />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="114x114"
-            href="/static/favicons/apple-touch-icon-114x114.png"
+            href="/static/favicons/apple-icon-114x114.png"
           />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="72x72"
-            href="/static/favicons/apple-touch-icon-72x72.png"
+            href="/static/favicons/apple-icon-72x72.png"
           />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="144x144"
-            href="/static/favicons/apple-touch-icon-144x144.png"
+            href="/static/favicons/apple-icon-144x144.png"
           />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="60x60"
-            href="/static/favicons/apple-touch-icon-60x60.png"
+            href="/static/favicons/apple-icon-60x60.png"
           />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="120x120"
-            href="/static/favicons/apple-touch-icon-120x120.png"
+            href="/static/favicons/apple-icon-120x120.png"
           />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="76x76"
-            href="/static/favicons/apple-touch-icon-76x76.png"
+            href="/static/favicons/apple-icon-76x76.png"
           />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="152x152"
-            href="/static/favicons/apple-touch-icon-152x152.png"
+            href="/static/favicons/apple-icon-152x152.png"
+          />
+          <link
+            rel="apple-touch-icon-precomposed"
+            sizes="180x180"
+            href="/static/favicons/apple-icon-180x180.png"
           />
           <link
             rel="icon"
@@ -79,29 +80,26 @@ class MyDocument extends Document {
             href="/static/favicons/favicon-128.png"
             sizes="128x128"
           />
-          <meta name="msapplication-TileImage" content="/static/favicons/mstile-144x144.png" />
-          <meta name="msapplication-square70x70logo" content="/static/favicons/mstile-70x70.png" />
+          <meta name="msapplication-TileImage" content="/static/favicons/ms-icon-144x144.png" />
+          <meta name="msapplication-square70x70logo" content="/static/favicons/ms-icon-70x70.png" />
           <meta
             name="msapplication-square150x150logo"
-            content="/static/favicons/mstile-150x150.png"
+            content="/static/favicons/ms-icon-150x150.png"
           />
           <meta
             name="msapplication-wide310x150logo"
-            content="/static/favicons/mstile-310x150.png"
+            content="/static/favicons/ms-icon-310x150.png"
           />
           <meta
             name="msapplication-square310x310logo"
-            content="/static/favicons/mstile-310x310.png"
+            content="/static/favicons/ms-icon-310x310.png"
           />
           <link rel="manifest" href="/static/favicons/site.webmanifest" />
           <link rel="mask-icon" href="/static/favicons/safari-pinned-tab.svg" color="#5bbad5" />
           <meta name="msapplication-TileColor" content="#000000" />
           <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
           <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
-          <meta
-            name="description"
-            content="Welcome to my personal blog where I share my musings. I am a Data Engineer passionate about Data Science, building pipelines and Automation."
-          />
+          <meta name="description" content="카페드플로르 한경점" />
           <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link
@@ -113,11 +111,6 @@ class MyDocument extends Document {
             href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
             integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc"
             crossOrigin="anonymous"
-          />
-          <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
-          <meta
-            name="google-site-verification"
-            content="_Ba0lKk4Dl9XMvABJ9gZEtoMPITT5Vr5TGx2M-34Z_I"
           />
         </Head>
         <body className="bg-white text-black antialiased dark:bg-background-color dark:text-white">

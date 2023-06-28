@@ -10,7 +10,7 @@ const siteMetadata = {
   siteRepo: 'https://github.com/eunchurn/cafedeflorekr',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
-  socialBanner: '/static/images/twitter-card.png',
+  socialBanner: '/static/images/og.jpg',
   email: 'cafedeflorekr@gmail.com',
   github: 'https://github.com/eunchurn',
   twitter: 'https://twitter.com/eunchurn',
