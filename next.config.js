@@ -2,11 +2,11 @@ const isProd = process.env.NODE_ENV === 'production'
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
-// const withPWA = require("next-pwa")({
-//   dest: "public",
-//   disable: !isProd,
-//   maximumFileSizeToCacheInBytes: 50000000,
-// });
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  disable: !isProd,
+  maximumFileSizeToCacheInBytes: 50000000,
+})
 
 const ContentSecurityPolicy = `
   script-src 'self' 'unsafe-eval' 'unsafe-inline' blob: data: localhost:4000 *.builderhub.io *.sentry-cdn.com;
@@ -123,8 +123,8 @@ if (process.env.GITHUB === 'true') {
 }
 
 module.exports = (_phase, { defaultConfig }) => {
-  // const plugins = [[withPWA], [withBundleAnalyzer]];
-  const plugins = [[withBundleAnalyzer]]
+  const plugins = [[withPWA], [withBundleAnalyzer]]
+  // const plugins = [[withBundleAnalyzer]]
 
   const wConfig = plugins.reduce((acc, [plugin, config]) => plugin({ ...acc, ...config }), {
     ...defaultConfig,
