@@ -34,12 +34,12 @@ export default function Home({ posts }) {
       <div>
         <div className="mb-12 flex justify-between flex-col items-center gap-x-12 xl:flex-row">
           <div className="pt-6">
-            <h1 className="pb-6 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
+            <h1 className="pb-6 text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
               안녕하세요{' '}
               <span className="text-primary-color-500 dark:text-primary-color-dark-500">
                 Cafe de Flore
               </span>{' '}
-              입니다.
+              입니다
             </h1>
             {/* <h2 className="prose pt-5 text-lg text-gray-600 dark:text-gray-300">
               {`Welcome to ${siteMetadata.description}. I am a Data Engineer who is passionate about Data Science and Automation. In my free time, I like developing `}
