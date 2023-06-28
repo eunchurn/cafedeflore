@@ -74,7 +74,7 @@ const nextConfig = {
   publicRuntimeConfig: {
     staticFolder: '',
   },
-  output: 'export',
+  output: process.env.NODE_ENV === 'production' ? 'export' : 'standalone',
   webpack: (config, { dev, isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {

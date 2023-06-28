@@ -15,6 +15,7 @@ import ProgressBar from 'react-scroll-progress-bar'
 import ScrollTop from '@/components/ScrollTop'
 import { SessionProvider } from 'next-auth/react'
 import { Provider } from '@lyket/react'
+import Script from 'next/script'
 
 const isDevelopment = process.env.NODE_ENV === 'development'
 const isSocket = process.env.SOCKET
@@ -63,6 +64,13 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
           {isDevelopment && isSocket && <ClientReload />}
           <Analytics />
           <LayoutWrapper>
+            <Script
+              src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.min.js"
+              integrity="sha384-x+WG2i7pOR+oWb6O5GV5f1KN2Ko6N7PTGPS7UlasYWNxZMKQA63Cj/B2lbUmUfuC"
+              crossorigin="anonymous"
+              strategy="beforeInteractive"
+            />
+            <Script id="kakao">Kakao.init('c089c8172def97eb00c07217cae17495')</Script>
             <Component {...pageProps} />
           </LayoutWrapper>
         </ThemeProvider>

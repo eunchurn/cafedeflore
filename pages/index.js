@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
@@ -8,6 +9,7 @@ import { RoughNotation } from 'react-rough-notation'
 import NewsletterForm from '@/components/NewsletterForm'
 import ViewCounter from '@/components/ViewCounter'
 import { InstagramIcon, KakaoNaviIcon } from '@/components/icon'
+import React from 'react'
 
 const MAX_DISPLAY = 3
 
@@ -18,6 +20,15 @@ export async function getStaticProps() {
 }
 
 export default function Home({ posts }) {
+  const handleKakaoNavi = () => {
+    console.log()
+    Kakao.Navi.start({
+      name: '현대백화점 판교점',
+      x: 127.11205203011632,
+      y: 37.39279717586919,
+      coordType: 'wgs84',
+    })
+  }
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
@@ -140,7 +151,7 @@ export default function Home({ posts }) {
               <div className="my-2 grid items-start gap-8">
                 <div className="group relative">
                   <div className="animate-tilt absolute -inset-0.5 rounded-lg bg-gradient-to-r from-fuchsia-600 to-emerald-600 opacity-50 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200"></div>
-                  <Link href="https://parthdesai.vercel.app/">
+                  <Link href={'/'} onClick={handleKakaoNavi}>
                     <span className="relative flex items-center rounded-lg bg-white px-7 py-4 leading-none dark:bg-black">
                       <KakaoNaviIcon />
                       {/* <span className="flex items-center space-x-5">
