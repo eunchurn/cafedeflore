@@ -1,5 +1,5 @@
 const siteMetadata = {
-  title: 'Blog | Cafe de Flore',
+  title: 'Cafe de Flore',
   author: 'Eunchurn Park',
   headerTitle: 'Cafe de flore',
   description: 'Cafe de flore website',
