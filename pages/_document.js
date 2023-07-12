@@ -2,7 +2,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en" className="scroll-smooth">
+      <Html lang="en" className="scroll-smooth" style={{ overscrollBehavior: 'none' }}>
         <Head>
           <link rel="apple-touch-icon" sizes="76x76" href="/static/favicons/apple-icon-76x76.png" />
           <link
@@ -113,7 +113,10 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
           />
         </Head>
-        <body className="bg-white text-black antialiased dark:bg-background-color dark:text-white">
+        <body
+          className="bg-white text-black antialiased dark:bg-background-color dark:text-white"
+          style={{ overscrollBehavior: 'none' }}
+        >
           <Main />
           <NextScript />
         </body>
